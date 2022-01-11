@@ -42,7 +42,7 @@ end
 # https://app.vagrantup.com/ubuntu
 UBUNTU = debian_based [
   { name: "ubuntu20.04", box: "ubuntu/focal64" },
-  #{ name: "ubuntu21.04", box: "ubuntu/hirsute64" },
+  { name: "ubuntu21.04", box: "ubuntu/hirsute64" },
   { name: "ubuntu21.10", box: "ubuntu/impish64" },
   { name: "ubuntu22.04", box: "ubuntu/jammy64" },
 ]

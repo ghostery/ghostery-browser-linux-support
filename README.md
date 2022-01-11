@@ -1,10 +1,27 @@
 ## Ghostery Browser Linux Support
 
+tl;dr: If you want to install the [Ghostery Browser](https://www.ghostery.com/dawn) on Linux, here are your options:
+
+On Arch-based distros such as Arch Linux, Manjaro, and EndeavourOS, [use the AUR package](#aur):
+
+```sh
+yay -S ghostery-dawn-bin
+ghostery &
+```
+
+Otherwise, use the [install script](#installscript):
+
+```sh
+curl https://raw.githubusercontent.com/ghostery/ghostery-browser-linux-support/main/install-ghostery.sh | bash
+```
+
+It will install the browser in your local user directory.
+
 # Table of contents
 1. [Introduction](#introduction)
 1. [AUR installation for Arch-based system (e.g. Arch Linux, Manjaro): ](#aur)
     1. [(Optional) Firejail](#aur-firejail)
-1. [Install script for all distros (e.g. Debian, Ubuntu, Mint, Fedora)](#)
+1. [Install script for all distros (e.g. Debian, Ubuntu, Mint, Fedora)](#installscript)
 1. [Troubleshooting](#troubleshooting)
     1. [Missing dependencies](#missing-dependencies)
     1. [Broken fonts on OpenSUSE](#suse)
@@ -65,7 +82,7 @@ sudo ln -s /usr/bin/firejail /usr/local/bin/ghostery
 Now running ```ghostery``` will have the same effect as running
 ```/usr/bin/firejail /usr/bin/ghostery```.
 
-### Generic Install Script
+### Generic Install Script <a name="installscript"></a>
 
 In this repository, you will find `install-ghostery.sh`, which automates
 the steps to download the latest binary build and installs it for your
