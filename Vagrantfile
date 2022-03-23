@@ -106,12 +106,11 @@ SHELL
 
 SUSE_TESTING_SETUP = <<-SHELL
   zypper --non-interactive refresh
-  zypper --non-interactive install bzip2
   zypper --non-interactive install xauth
 SHELL
 
 REDHAT_TESTING_SETUP = <<-SHELL
-  yum install -y bzip2 xorg-x11-xauth
+  yum install -y xorg-x11-xauth
 SHELL
 
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
@@ -134,7 +133,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         app.vm.provision "shell", inline: DEBIAN_TESTING_SETUP
         app.vm.provision "shell", inline: <<-SHELL
            # dependencies that the user should install
-           DEBIAN_FRONTEND=noninteractive apt-get install -y wget bzip2
+           DEBIAN_FRONTEND=noninteractive apt-get install -y wget
            if [[ $(lsb_release -i -s) == Debian ]]; then
              DEBIAN_FRONTEND=noninteractive apt-get install -y firefox-esr
            else

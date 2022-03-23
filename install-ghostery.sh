@@ -11,13 +11,7 @@
 #
 set -Eeuo pipefail
 
-RELEASE_URL="https://get.ghosterybrowser.com/download/linux/en-US"
-
-# fail fast if dependencies of the install scripts are missing
-if ! type -p bzip2 > /dev/null; then
-    echo "ERROR: bzip2 is not present (needed to extract the downloaded data)"
-    exit 1
-fi
+RELEASE_URL="https://get.ghosterybrowser.com/download/linux/en"
 
 # either wget or curl:
 if type -p wget > /dev/null; then
@@ -51,7 +45,7 @@ if [[ -e $TARGET ]]; then
 fi
 
 echo "Downloading build from $RELEASE_URL and extracting to $TARGET..."
-$DOWNLOAD_CMD "$RELEASE_URL" | tar -C "$TARGET_BASE" -xjf - Ghostery
+$DOWNLOAD_CMD "$RELEASE_URL" | tar -C "$TARGET_BASE" -xzf - Ghostery
 if ! [[ -e $TARGET ]]; then
     echo "ERROR: Failed to install Ghostery."
     exit 1
