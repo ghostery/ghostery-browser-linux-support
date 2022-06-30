@@ -11,7 +11,7 @@
 #
 set -Eeuo pipefail
 
-RELEASE_URL="https://get.ghosterybrowser.com/download/linux/en"
+RELEASE_URL="https://get.ghosterybrowser.com/download/linux/en-US"
 
 # either wget or curl:
 if type -p wget > /dev/null; then
