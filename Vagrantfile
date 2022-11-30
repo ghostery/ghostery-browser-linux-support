@@ -42,8 +42,8 @@ end
 # https://app.vagrantup.com/ubuntu
 UBUNTU = debian_based [
   { name: "ubuntu20.04", box: "ubuntu/focal64" },
-  { name: "ubuntu21.10", box: "ubuntu/impish64" },
   { name: "ubuntu22.04", box: "ubuntu/jammy64" },
+  { name: "ubuntu22.10", box: "ubuntu/kinetic64" },
 ]
 
 # https://app.vagrantup.com/debian
@@ -52,7 +52,7 @@ DEBIAN = debian_based [
 ]
 
 MINT = debian_based [
-  { name: "mint20", box: "aaronvonawesome/linux-mint-20-cinnamon" }
+  { name: "mint21", box: "aaronvonawesome/linux-mint-21-cinnamon" },
 ]
 
 ARCH = archlinux_based [
@@ -87,7 +87,7 @@ SUPPORTED_PLATFORMS = UBUNTU + MINT + DEBIAN + ARCH + FEDORA
 
 DEBIAN_TESTING_SETUP = <<-SHELL
   apt-get update
-  DEBIAN_FRONTEND=noninteractive apt-get install -y xauth
+  DEBIAN_FRONTEND=noninteractive apt-get install -y xauth xdg-utils
 SHELL
 
 ARCH_TESTING_SETUP = <<-SHELL
