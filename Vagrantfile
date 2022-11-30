@@ -15,7 +15,7 @@
 # vagrant@ubuntu-focal:~$ ~/.local/bin/ghostery &
 #
 # Finally, once you are done, you can destroy all machines:
-# $ vagrant destroy -y
+# $ vagrant destroy -f
 
 VAGRANTFILE_API_VERSION = "2"
 
