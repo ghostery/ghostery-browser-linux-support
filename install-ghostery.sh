@@ -29,9 +29,9 @@ if [[ $(whoami) = root ]]; then
 fi
 
 # Locations: application ~/.local/opt/ghostery/Ghostery and ~/.local/bin/ghostery
-TARGET_BASE=~/.local/opt/ghostery
+TARGET_BASE="$HOME/.local/opt/ghostery"
 TARGET="$TARGET_BASE/Ghostery"
-WRAPPER_SCRIPT_PREFIX=~/.local/bin
+WRAPPER_SCRIPT_PREFIX="$HOME/.local/bin"
 WRAPPER_SCRIPT="$WRAPPER_SCRIPT_PREFIX/ghostery"
 
 mkdir -p "$TARGET_BASE"
@@ -63,10 +63,10 @@ chmod a+x "$WRAPPER_SCRIPT"
 
 # Some distributions have ~/bin in the path but not ~/.local/bin.
 if ! type -p ghostery > /dev/null; then
-  if [[ -e ~/bin/ ]]; then
-      echo "~/.local/bin is not in the path, but it detected that ~/bin is."
-      echo "Creating a symlink from ~/bin/ghostery to $WRAPPER_SCRIPT."
-      (cd ~/bin && ln -s "$WRAPPER_SCRIPT" .)
+  if [[ -e $HOME/bin/ ]]; then
+      echo "$HOME/.local/bin is not in the path, but it detected that $HOME/bin is."
+      echo "Creating a symlink from $HOME/bin/ghostery to $WRAPPER_SCRIPT."
+      (cd $HOME/bin && ln -s "$WRAPPER_SCRIPT" .)
   fi
 fi
 
@@ -81,5 +81,5 @@ else
     echo "Hint: consider adding ~/.local/bin/ghostery in your PATH."
     echo "For example, by adding this to your ~/.bashrc file:"
     echo
-    echo 'export PATH="${PATH:+${PATH}:}~/.local/bin"'
+    echo 'export PATH="${PATH:+${PATH}:}$HOME/.local/bin"'
 fi
