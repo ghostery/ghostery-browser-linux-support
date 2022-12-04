@@ -7,7 +7,7 @@
 # Before running it, it is recommended to backup the profiles
 # in "~/.ghostery browser".
 #
-# Note: 
+# Note:
 #
 set -Eeuo pipefail
 
@@ -78,7 +78,7 @@ if type -p ghostery > /dev/null; then
 else
     echo "$WRAPPER_SCRIPT"
     echo
-    echo "Hint: consider adding ~/.local/bin/ghostery ot your PATH."
+    echo "Hint: consider adding ~/.local/bin/ghostery in your PATH."
     echo "For example, by adding this to your ~/.bashrc file:"
     echo
     echo 'export PATH="${PATH:+${PATH}:}~/.local/bin"'

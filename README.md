@@ -85,7 +85,7 @@ Now running ```ghostery``` will have the same effect as running
 ### Generic Install Script <a name="installscript"></a>
 
 In this repository, you will find `install-ghostery.sh`, which automates
-the steps to download the latest binary build and installs it for your
+the steps to download the latest binary build and install it for your
 local user (in `~/.local/opt` and `~/.local/bin`).
 
 Once the installation finishes, you should be able to start the browser
