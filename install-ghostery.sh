@@ -11,7 +11,20 @@
 #
 set -Eeuo pipefail
 
-RELEASE_URL="https://get.ghosterybrowser.com/download/linux/en-US"
+LANG="${1:-en-US}"
+case "$LANG" in
+    fr|FR|fr-FR|fr_FR)
+        LANG=fr
+        ;;
+    de|DE|de-DE|de_DE)
+        LANG=de
+        ;;
+    *)
+        LANG=en-US
+        ;;
+esac
+
+RELEASE_URL="https://get.ghosterybrowser.com/download/linux/$LANG"
 
 # either wget or curl:
 if type -p wget > /dev/null; then

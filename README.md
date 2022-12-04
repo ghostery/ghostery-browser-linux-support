@@ -88,6 +88,11 @@ In this repository, you will find `install-ghostery.sh`, which automates
 the steps to download the latest binary build and install it for your
 local user (in `~/.local/opt` and `~/.local/bin`).
 
+By default, this script will download and install the english version of the
+browser. But you can pass a lang code as argument to download another version
+of it (currently, only fr, de and en-US versions are available):
+`./install-ghostery.sh de`
+
 Once the installation finishes, you should be able to start the browser
 by executing: ```ghostery``` (or as a fallback: ```~/.local/bin/ghostery```).
 
