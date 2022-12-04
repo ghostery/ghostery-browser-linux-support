@@ -46,6 +46,8 @@ TARGET_BASE="$HOME/.local/opt/ghostery"
 TARGET="$TARGET_BASE/Ghostery"
 WRAPPER_SCRIPT_PREFIX="$HOME/.local/bin"
 WRAPPER_SCRIPT="$WRAPPER_SCRIPT_PREFIX/ghostery"
+APPLICATION_PREFIX="$HOME/.local/share/applications"
+APPLICATION_LAUNCHER="$APPLICATION_PREFIX/ghostery-dawn.desktop"
 
 mkdir -p "$TARGET_BASE"
 if [[ -e $TARGET ]]; then
@@ -74,6 +76,20 @@ exec ./Ghostery "\$@"
 EOF
 chmod a+x "$WRAPPER_SCRIPT"
 
+GRAPHICAL_MENU=n
+if type -p update-desktop-database > /dev/null; then
+    echo "Creating application launcher"
+    mkdir -p "$APPLICATION_PREFIX"
+    # FIXME: once merged in master, the following line must be replaced by a
+    # download from github repo, as the main usage of this script is to be run
+    # outside this repository. Or maybe better, should be embed in the browser
+    # tarball itself?
+    cp data/ghostery-dawn.desktop "$APPLICATION_LAUNCHER"
+    sed -i "s|\[TARGET\]|$TARGET|" "$APPLICATION_LAUNCHER"
+    update-desktop-database "$APPLICATION_PREFIX"
+    GRAPHICAL_MENU=y
+fi
+
 # Some distributions have ~/bin in the path but not ~/.local/bin.
 if ! type -p ghostery > /dev/null; then
   if [[ -e $HOME/bin/ ]]; then
@@ -84,8 +100,16 @@ if ! type -p ghostery > /dev/null; then
 fi
 
 echo "Ghostery dawn has been successfully extracted to $TARGET."
-echo
-echo "You can start it by running the following command:"
+if [ "$GRAPHICAL_MENU" = y ]; then
+    echo
+    echo "You should find it in your application menu and click Ghosty icon to start it."
+    echo
+    echo -n "You can also start it "
+else
+    echo
+    echo -n "You can start it "
+fi
+echo "by running the following command:"
 if type -p ghostery > /dev/null; then
     echo "ghostery"
 else

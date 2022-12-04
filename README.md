@@ -99,7 +99,7 @@ by executing: ```ghostery``` (or as a fallback: ```~/.local/bin/ghostery```).
 If want to undo the changes made by the installer, you can execute:
 
 ```
-rm -rf ~/bin/ghostery ~/.local/bin/ghostery ~/.local/opt/ghostery/Ghostery
+rm -rf ~/bin/ghostery ~/.local/bin/ghostery ~/.local/opt/ghostery/Ghostery ~/.local/share/applications/ghostery-dawn.desktop
 ```
 
 ### Troubleshooting <a name="troubleshooting"></a>
