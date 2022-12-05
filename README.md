@@ -85,8 +85,13 @@ Now running ```ghostery``` will have the same effect as running
 ### Generic Install Script <a name="installscript"></a>
 
 In this repository, you will find `install-ghostery.sh`, which automates
-the steps to download the latest binary build and installs it for your
+the steps to download the latest binary build and install it for your
 local user (in `~/.local/opt` and `~/.local/bin`).
+
+By default, this script will download and install the english version of the
+browser. But you can pass a lang code as argument to download another version
+of it (currently, only fr, de and en-US versions are available):
+`./install-ghostery.sh de`
 
 Once the installation finishes, you should be able to start the browser
 by executing: ```ghostery``` (or as a fallback: ```~/.local/bin/ghostery```).
@@ -94,7 +99,7 @@ by executing: ```ghostery``` (or as a fallback: ```~/.local/bin/ghostery```).
 If want to undo the changes made by the installer, you can execute:
 
 ```
-rm -rf ~/bin/ghostery ~/.local/bin/ghostery ~/.local/opt/ghostery/Ghostery
+rm -rf ~/bin/ghostery ~/.local/bin/ghostery ~/.local/opt/ghostery/Ghostery ~/.local/share/applications/ghostery-dawn.desktop
 ```
 
 ### Troubleshooting <a name="troubleshooting"></a>
