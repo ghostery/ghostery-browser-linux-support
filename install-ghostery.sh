@@ -80,11 +80,8 @@ GRAPHICAL_MENU=n
 if type -p update-desktop-database > /dev/null; then
     echo "Creating application launcher"
     mkdir -p "$APPLICATION_PREFIX"
-    # FIXME: once merged in master, the following line must be replaced by a
-    # download from github repo, as the main usage of this script is to be run
-    # outside this repository. Or maybe better, should be embed in the browser
-    # tarball itself?
-    cp data/ghostery-dawn.desktop "$APPLICATION_LAUNCHER"
+    # FIXME: should be embedded in the browser tarball
+    $DOWNLOAD_CMD "https://raw.githubusercontent.com/ghostery/ghostery-browser-linux-support/main/data/ghostery-dawn.desktop" > "$APPLICATION_LAUNCHER"
     sed -i "s|\[TARGET\]|$TARGET|" "$APPLICATION_LAUNCHER"
     update-desktop-database "$APPLICATION_PREFIX"
     GRAPHICAL_MENU=y
