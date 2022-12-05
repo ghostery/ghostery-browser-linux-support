@@ -28,9 +28,9 @@ RELEASE_URL="https://get.ghosterybrowser.com/download/linux/$LANG"
 
 # either wget or curl:
 if type -p wget > /dev/null; then
-    DOWNLOAD_CMD="wget --no-verbose --output-document -"
+    DOWNLOAD_CMD="wget --no-verbose --show-progress --output-document -"
 elif type -p curl > /dev/null; then
-    DOWNLOAD_CMD="curl -L"
+    DOWNLOAD_CMD="curl -L --progress-bar"
 else
     echo "ERROR: did not find a tool to download the release (install wget or curl)"
     exit 1
