@@ -1,0 +1,6 @@
+{
+  "_origin_": "https://github.com/mozilla/policy-templates",
+  "policies": {
+    "DisableAppUpdate": true
+  }
+}
