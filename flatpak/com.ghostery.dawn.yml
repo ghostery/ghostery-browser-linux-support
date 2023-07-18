@@ -33,7 +33,6 @@ finish-args:
 - "--env=MOZ_USE_XINPUT2=1"
 - "--own-name=com.ghostery.dawn.*"
 - "--own-name=org.mpris.MediaPlayer2.firefox.*"
-- "--share=network"
 modules:
 - shared-modules/dbus-glib/dbus-glib.json
 - name: ghostery
@@ -54,8 +53,8 @@ modules:
   - install -d /app/lib/ffmpeg
   sources:
   - type: archive
-    url: https://github.com/ghostery/user-agent-desktop/releases/download/2022-12-12/Ghostery-2022.8.2.en-US.linux.tar.gz
-    sha256: dab32f80be4a50b475810bfabaf524c28f79a60703e72db2337180dda5167ca1
+    url: https://github.com/ghostery/user-agent-desktop/releases/download/2023-03-03/Ghostery-2023.1.en-US.linux.tar.gz
+    sha256: 02cae41858166f46a18f0a5220550d6ad0405854caecf71f193afada50ff321f
     dest: ghostery_app
     strip-components: 0
     only-arches:
@@ -98,9 +97,9 @@ modules:
   - "-Dgtk_doc=false"
   - "-Ddocbook_docs=disabled"
   sources:
-  - sha256: d033e6d4d6ccbf46a436c31628a4b661b36dca1f5d4174fe0173e274f4e62557
+  - sha256: c5f4ed3d1f86e5b118c76415aacb861873ed3e6f0c6b3181b828cf584fc5c616
     type: archive
-    url: https://download.gnome.org/sources/libnotify/0.8/libnotify-0.8.1.tar.xz
+    url: https://download.gnome.org/sources/libnotify/0.8/libnotify-0.8.2.tar.xz
     x-checker-data:
       project-id: 13149
       type: anitya
