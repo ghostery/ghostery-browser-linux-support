@@ -34,7 +34,7 @@ finish-args:
 - "--own-name=com.ghostery.dawn.*"
 - "--own-name=org.mpris.MediaPlayer2.firefox.*"
 modules:
-- shared-modules/dbus-glib/dbus-glib.json
+- shared-modules/dbus-glib/dbus-glib-0.110.json
 - name: ghostery
   buildsystem: simple
   build-commands:
@@ -53,8 +53,8 @@ modules:
   - install -d /app/lib/ffmpeg
   sources:
   - type: archive
-    url: https://github.com/ghostery/user-agent-desktop/releases/download/2023-03-03/Ghostery-2023.1.en-US.linux.tar.gz
-    sha256: 02cae41858166f46a18f0a5220550d6ad0405854caecf71f193afada50ff321f
+    url: https://github.com/ghostery/user-agent-desktop/releases/download/2023-07-13/Ghostery-2023.6.en-US.linux.tar.gz
+    sha256: 192ad469558c2bfabd883fc4a851a74325e2af36c87adce36624787cefd6f65d
     dest: ghostery_app
     strip-components: 0
     only-arches:
