@@ -2,9 +2,9 @@
 
 all: build
 
-build: clean
+build:
 	flatpak --user --noninteractive install org.freedesktop.Sdk//22.08
-	flatpak-builder build-dir com.ghostery.dawn.yml
+	flatpak-builder --force-clean build-dir com.ghostery.dawn.yml
 
 install:
 	flatpak-builder --user --install --force-clean build-dir com.ghostery.dawn.yml

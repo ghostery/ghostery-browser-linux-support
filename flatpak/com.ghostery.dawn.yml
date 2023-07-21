@@ -1,5 +1,6 @@
 ---
 app-id: com.ghostery.dawn
+default-branch: beta
 runtime: org.freedesktop.Platform
 runtime-version: '22.08'
 sdk: org.freedesktop.Sdk
