@@ -70,24 +70,29 @@ module GhosteryDawn
     end
   end
 
+  module Helper
+    def self.run_cmd(cmd)
+      puts cmd.join ' '
+      system(*cmd, exception: true)
+    end
+  end
+
   module Builder
     FLATPAK_USER = %w[flatpak --user --noninteractive].freeze
 
     def self.build
-      sdk_cmd = FLATPAK_USER + %w[install org.freedesktop.Sdk//22.08]
-      system(*sdk_cmd)
-      builder_cmd = %w[flatpak-builder --force-clean build-dir com.ghostery.dawn.yml]
-	    system(*builder_cmd)
+      Helper.run_cmd(%w[flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo])
+      Helper.run_cmd(FLATPAK_USER + %w[install org.freedesktop.Platform//22.08])
+      Helper.run_cmd(FLATPAK_USER + %w[install org.freedesktop.Sdk//22.08])
+      Helper.run_cmd %w[flatpak-builder --force-clean build-dir com.ghostery.dawn.yml]
     end
 
     def self.install
-      install_cmd = %w[flatpak-builder --user --install --force-clean build-dir com.ghostery.dawn.yml]
-      system(*install_cmd)
+      Helper.run_cmd %w[flatpak-builder --user --install --force-clean build-dir com.ghostery.dawn.yml]
     end
 
     def self.uninstall
-      uninstall_cmd = %w[flatpak --user --noninteractive uninstall com.ghostery.dawn]
-      system(*uninstall_cmd)
+      Helper.run_cmd(FLATPAK_USER + %w[uninstall com.ghostery.dawn])
     end
 
     def self.clean
@@ -144,16 +149,15 @@ parser = OptionParser.new do |parser| # rubocop:disable Metrics/BlockLength
             '(default: en-US)')
 end
 parser.parse!(into: options)
-
-unless options[:date] && options[:version]
-  puts parser.help
-  exit 1
-end
-
 command = (ARGV[0] || 'bump').to_sym
 
-if command == :bump
+if command == :bump && options[:date] && options[:version]
   GhosteryDawn::VersionBumper.new(options).bump
+
 elsif possible_commands.include?(command)
   GhosteryDawn::Builder.send(command)
+
+else
+  puts parser.help
+  exit 2
 end
