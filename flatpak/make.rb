@@ -112,11 +112,12 @@ options = {
 }
 parser = OptionParser.new do |parser| # rubocop:disable Metrics/BlockLength
   parser.banner = <<~HELP
-    Usage: ruby upgrade.rb [options] COMMAND
+    Usage: ruby make.rb [options] COMMAND
 
     Example:
-        ruby upgrade.rb -d 2022-09-06 -v 2022.8
-        ruby upgrade.rb -d 2022-12-06 -v 2022.8.2 -l de -b beta
+        ruby make.rb -d 2022-09-06 -v 2022.8
+        ruby make.rb bump -d 2022-12-06 -v 2022.8.2 -l de -b beta
+        ruby make.rb build
 
     Commands:
         bump (default)
