@@ -1,6 +1,6 @@
 ## Ghostery Browser Linux Support
 
-tl;dr: If you want to install the [Ghostery Browser](https://www.ghostery.com/dawn) on Linux, here are your options:
+tl;dr: If you want to install [Ghostery Private Browser](https://www.ghostery.com/ghostery-private-browser) on Linux, here are your options:
 
 On Arch-based distros such as Arch Linux, Manjaro, and EndeavourOS, [use the AUR package](#aur):
 
