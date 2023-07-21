@@ -55,7 +55,7 @@ modules:
   sources:
   - type: archive
     url: https://github.com/ghostery/user-agent-desktop/releases/download/2023-07-13/Ghostery-2023.6.en-US.linux.tar.gz
-    sha256: 192ad469558c2bfabd883fc4a851a74325e2af36c87adce36624787cefd6f65d
+    sha256: 29d5459a3375ab1d217acaeb3524942a56cfb4e2ba29ecc2aa557ee2cd6b90be
     dest: ghostery_app
     strip-components: 0
     only-arches:
