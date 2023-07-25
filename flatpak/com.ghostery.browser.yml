@@ -1,6 +1,6 @@
 ---
 app-id: com.ghostery.browser
-default-branch: beta
+default-branch: stable
 runtime: org.freedesktop.Platform
 runtime-version: '22.08'
 sdk: org.freedesktop.Sdk
@@ -54,8 +54,8 @@ modules:
   - install -d /app/lib/ffmpeg
   sources:
   - type: archive
-    url: https://github.com/ghostery/user-agent-desktop/releases/download/2023-07-13/Ghostery-2023.6.en-US.linux.tar.gz
-    sha256: 29d5459a3375ab1d217acaeb3524942a56cfb4e2ba29ecc2aa557ee2cd6b90be
+    url: https://github.com/ghostery/user-agent-desktop/releases/download/2023-07-21/Ghostery-2023.6.en-US.linux.tar.gz
+    sha256: 84bbd2221172e4b78fc88c8f9c46af0a43c8cc9e08d33ec32e7e35334b9e8609
     dest: ghostery_app
     strip-components: 0
     only-arches:
