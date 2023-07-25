@@ -10,7 +10,7 @@ To build it, you can use the provided `make.rb` ruby script:
 - `ruby make.rb build` to create a local flatpak package
 - `ruby make.rb install` to install a previously created local flatpak package
 - `ruby make.rb uninstall` to uninstall the flatpak previously installed
-- `flatpak --user run com.ghostery.dawn` to launch a previously installed
+- `flatpak --user run com.ghostery.browser` to launch a previously installed
   version (you should also be able to just click on the Ghostery icon in your
   distribution app menu).
 - `ruby make.rb clean` to just remove the build directory (necessary to make a
@@ -20,4 +20,3 @@ To build it, you can use the provided `make.rb` ruby script:
 
 The ruby script only uses standard library and thus a very simple ruby
 installation should make it work.
-

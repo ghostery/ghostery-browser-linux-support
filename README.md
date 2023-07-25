@@ -79,8 +79,8 @@ If you want, you can make it permanent:
 sudo ln -s /usr/bin/firejail /usr/local/bin/ghostery
 ```
 
-Now running ```ghostery``` will have the same effect as running
-```/usr/bin/firejail /usr/bin/ghostery```.
+Now running `ghostery` will have the same effect as running
+`/usr/bin/firejail /usr/bin/ghostery`.
 
 ### Generic Install Script <a name="installscript"></a>
 
@@ -94,12 +94,12 @@ of it (currently, only fr, de and en-US versions are available):
 `./install-ghostery.sh de`
 
 Once the installation finishes, you should be able to start the browser
-by executing: ```ghostery``` (or as a fallback: ```~/.local/bin/ghostery```).
+by executing: `ghostery` (or as a fallback: `~/.local/bin/ghostery`).
 
 If want to undo the changes made by the installer, you can execute:
 
-```
-rm -rf ~/bin/ghostery ~/.local/bin/ghostery ~/.local/opt/ghostery/Ghostery ~/.local/share/applications/ghostery-browser.desktop
+```sh
+rm -rf ~/bin/ghostery ~/.local/bin/ghostery ~/.local/opt/ghostery/Ghostery ~/.local/share/applications/ghostery-private-browser.desktop
 ```
 
 ### Troubleshooting <a name="troubleshooting"></a>

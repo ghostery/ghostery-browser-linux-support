@@ -47,7 +47,7 @@ TARGET="$TARGET_BASE/Ghostery"
 WRAPPER_SCRIPT_PREFIX="$HOME/.local/bin"
 WRAPPER_SCRIPT="$WRAPPER_SCRIPT_PREFIX/ghostery"
 APPLICATION_PREFIX="$HOME/.local/share/applications"
-APPLICATION_LAUNCHER="$APPLICATION_PREFIX/ghostery-dawn.desktop"
+APPLICATION_LAUNCHER="$APPLICATION_PREFIX/ghostery-private-browser.desktop"
 
 mkdir -p "$TARGET_BASE"
 if [[ -e $TARGET ]]; then
@@ -81,7 +81,7 @@ if type -p update-desktop-database > /dev/null; then
     echo "Creating application launcher"
     mkdir -p "$APPLICATION_PREFIX"
     # FIXME: should be embedded in the browser tarball
-    $DOWNLOAD_CMD "https://raw.githubusercontent.com/ghostery/ghostery-browser-linux-support/main/data/ghostery-dawn.desktop" > "$APPLICATION_LAUNCHER"
+    $DOWNLOAD_CMD "https://raw.githubusercontent.com/ghostery/ghostery-browser-linux-support/main/data/ghostery-private-browser.desktop" > "$APPLICATION_LAUNCHER"
     sed -i "s|\[TARGET\]|$TARGET|" "$APPLICATION_LAUNCHER"
     update-desktop-database "$APPLICATION_PREFIX"
     GRAPHICAL_MENU=y
@@ -96,7 +96,7 @@ if ! type -p ghostery > /dev/null; then
   fi
 fi
 
-echo "Ghostery dawn has been successfully extracted to $TARGET."
+echo "Ghostery Private Browser has been successfully extracted to $TARGET."
 if [ "$GRAPHICAL_MENU" = y ]; then
     echo
     echo "You should find it in your application menu and click Ghosty icon to start it."

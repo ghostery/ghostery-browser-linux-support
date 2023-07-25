@@ -42,25 +42,25 @@ module GhosteryDawn
     private
 
     def upgrade_manifest
-      data = YAML.load_file('com.ghostery.dawn.yml')
+      data = YAML.load_file('com.ghostery.browser.yml')
       ghost_index, src_index = VersionBumper.ghostery_source_indexes(data)
       data['modules'][ghost_index]['sources'][src_index]['url'] = @options[:url]
       release_hash = Digest::SHA256.file(@options[:tarball]).hexdigest
       data['modules'][ghost_index]['sources'][src_index]['sha256'] = release_hash
       data['default-branch'] = @options[:branch]
-      File.write('com.ghostery.dawn.yml', data.to_yaml)
+      File.write('com.ghostery.browser.yml', data.to_yaml)
       release_hash
     end
 
     def upgrade_appdata
-      appdata = File.read('com.ghostery.dawn.appdata.xml').split("\n")
+      appdata = File.read('com.ghostery.browser.appdata.xml').split("\n")
       appdata.map! do |line|
         line.gsub(
           %r{<release version="[0-9.]+" date="[0-9-]+"/>},
           "<release version=\"#{@options[:version]}\" date=\"#{@options[:date]}\"/>"
         )
       end
-      File.write 'com.ghostery.dawn.appdata.xml', appdata.join("\n")
+      File.write 'com.ghostery.browser.appdata.xml', appdata.join("\n")
     end
 
     def cache_tarball(release_hash)
@@ -84,15 +84,15 @@ module GhosteryDawn
       Helper.run_cmd(%w[flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo])
       Helper.run_cmd(FLATPAK_USER + %w[install org.freedesktop.Platform//22.08])
       Helper.run_cmd(FLATPAK_USER + %w[install org.freedesktop.Sdk//22.08])
-      Helper.run_cmd %w[flatpak-builder --force-clean build-dir com.ghostery.dawn.yml]
+      Helper.run_cmd %w[flatpak-builder --force-clean build-dir com.ghostery.browser.yml]
     end
 
     def self.install
-      Helper.run_cmd %w[flatpak-builder --user --install --force-clean build-dir com.ghostery.dawn.yml]
+      Helper.run_cmd %w[flatpak-builder --user --install --force-clean build-dir com.ghostery.browser.yml]
     end
 
     def self.uninstall
-      Helper.run_cmd(FLATPAK_USER + %w[uninstall com.ghostery.dawn])
+      Helper.run_cmd(FLATPAK_USER + %w[uninstall com.ghostery.browser])
     end
 
     def self.clean
