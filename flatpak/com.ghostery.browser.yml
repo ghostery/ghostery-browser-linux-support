@@ -1,5 +1,5 @@
 ---
-app-id: com.ghostery.dawn
+app-id: com.ghostery.browser
 default-branch: beta
 runtime: org.freedesktop.Platform
 runtime-version: '22.08'
@@ -32,7 +32,7 @@ finish-args:
 - "--talk-name=org.freedesktop.Notifications"
 - "--env=MOZ_ENABLE_WAYLAND=1"
 - "--env=MOZ_USE_XINPUT2=1"
-- "--own-name=com.ghostery.dawn.*"
+- "--own-name=com.ghostery.browser.*"
 - "--own-name=org.mpris.MediaPlayer2.firefox.*"
 modules:
 - shared-modules/dbus-glib/dbus-glib-0.110.json
@@ -43,13 +43,13 @@ modules:
   - mv ghostery_app/Ghostery /app/lib/ghostery
   - install -D -m644 policies.json -t /app/lib/ghostery/distribution
   - install -D -m644 /app/lib/ghostery/browser/chrome/icons/default/default128.png
-    /app/share/icons/hicolor/128x128/apps/com.ghostery.dawn.png
+    /app/share/icons/hicolor/128x128/apps/com.ghostery.browser.png
   - install -D -m644 /app/lib/ghostery/browser/chrome/icons/default/default128.png
-    /app/usr/share/icons/hicolor/128x128/apps/com.ghostery.dawn.png
-  - sed -i 's|\[TARGET\]/Ghostery|ghostery|' com.ghostery.dawn.desktop
-  - sed -i 's|^Icon=.*$|Icon=com.ghostery.dawn|' com.ghostery.dawn.desktop
-  - install -D -m644 com.ghostery.dawn.desktop -t /app/share/applications
-  - install -D -m644 com.ghostery.dawn.appdata.xml -t /app/share/metainfo
+    /app/usr/share/icons/hicolor/128x128/apps/com.ghostery.browser.png
+  - sed -i 's|\[TARGET\]/Ghostery|ghostery|' com.ghostery.browser.desktop
+  - sed -i 's|^Icon=.*$|Icon=com.ghostery.browser|' com.ghostery.browser.desktop
+  - install -D -m644 com.ghostery.browser.desktop -t /app/share/applications
+  - install -D -m644 com.ghostery.browser.appdata.xml -t /app/share/metainfo
   - install -D -m755 ghostery.sh /app/bin/ghostery
   - install -d /app/lib/ffmpeg
   sources:
@@ -61,14 +61,14 @@ modules:
     only-arches:
     - x86_64
   - type: file
-    path: "../data/ghostery-dawn.desktop"
-    dest-filename: com.ghostery.dawn.desktop
+    path: "../data/ghostery-private-browser.desktop"
+    dest-filename: com.ghostery.browser.desktop
   - type: file
     path: "../data/policies.json"
   - type: file
     path: ghostery.sh
   - type: file
-    path: com.ghostery.dawn.appdata.xml
+    path: com.ghostery.browser.appdata.xml
 - name: gtk-cups-backend
   buildsystem: meson
   make-args:
