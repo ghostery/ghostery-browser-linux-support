@@ -5,7 +5,7 @@ tl;dr: If you want to install [Ghostery Private Browser](https://www.ghostery.co
 On Arch-based distros such as Arch Linux, Manjaro, and EndeavourOS, [use the AUR package](#aur):
 
 ```sh
-yay -S ghostery-dawn-bin
+yay -S ghostery-browser-bin
 ghostery &
 ```
 
@@ -44,7 +44,7 @@ open a ticket here (instead of `user-agent-desktop`).
 ### AUR: Arch Based System (Arch Linux, Manjaro, ...) <a name="aur"></a>
 
 If you are on an Arch-based system, which uses `pacman` as the package manager,
-it is recommended to use the [AUR package](https://aur.archlinux.org/packages/ghostery-dawn-bin/).
+it is recommended to use the [AUR package](https://aur.archlinux.org/packages/ghostery-browser-bin/).
 
 For a documentation how to use AUR, refer to the documentation of your distribution:
 
@@ -54,7 +54,7 @@ For a documentation how to use AUR, refer to the documentation of your distribut
 For instance, if you are using [`yay`](https://github.com/Jguer/yay):
 
 ```sh
-yay -S ghostery-dawn-bin
+yay -S ghostery-browser-bin
 ```
 
 Now you can start it by running:
@@ -99,7 +99,7 @@ by executing: ```ghostery``` (or as a fallback: ```~/.local/bin/ghostery```).
 If want to undo the changes made by the installer, you can execute:
 
 ```
-rm -rf ~/bin/ghostery ~/.local/bin/ghostery ~/.local/opt/ghostery/Ghostery ~/.local/share/applications/ghostery-dawn.desktop
+rm -rf ~/bin/ghostery ~/.local/bin/ghostery ~/.local/opt/ghostery/Ghostery ~/.local/share/applications/ghostery-browser.desktop
 ```
 
 ### Troubleshooting <a name="troubleshooting"></a>
@@ -121,7 +121,7 @@ In addition, the installer itself requires `bzip2`, and either `wget` or `curl` 
 *For Arch/Manjaro Users*: this section only applies when you used the install script.
 If you are using the AUR, it should automatically install all dependencies. If not,
 please report it as bug on the
-[AUR page](https://aur.archlinux.org/packages/ghostery-dawn-bin/),
+[AUR page](https://aur.archlinux.org/packages/ghostery-browser-bin/),
 (and please include the error message).
 
 #### OpenSUSE <a name="suse"></a>

@@ -165,7 +165,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   end
 
   # Arch specific installation through the AUR package:
-  # https://aur.archlinux.org/packages/ghostery-dawn-bin/
+  # https://aur.archlinux.org/packages/ghostery-browser-bin/
   ARCH.each do |platform|
     config.vm.define "#{platform[:name]}-aur" do |app|
       app.vm.box = platform[:box]
@@ -184,8 +184,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         pacman --noconfirm --disable-download-timeout -S --needed git base-devel
         ( su vagrant /bin/bash -c 'git clone https://aur.archlinux.org/yay.git && cd yay && makepkg --noconfirm -si' )
 
-        # install Ghostery from aur/ghostery-dawn-bin
-        su vagrant /bin/bash -c 'yay --noconfirm -S ghostery-dawn-bin'
+        # install Ghostery from aur/ghostery-browser-bin
+        su vagrant /bin/bash -c 'yay --noconfirm -S ghostery-browser-bin'
       SHELL
     end
   end
