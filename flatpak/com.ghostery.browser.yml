@@ -41,13 +41,13 @@ modules:
   build-commands:
   - mkdir -p /app/lib
   - mv ghostery_app/Ghostery /app/lib/ghostery
-  - install -D -m644 policies.json -t /app/lib/ghostery/distribution
   - install -D -m644 /app/lib/ghostery/browser/chrome/icons/default/default128.png
     /app/share/icons/hicolor/128x128/apps/com.ghostery.browser.png
   - install -D -m644 /app/lib/ghostery/browser/chrome/icons/default/default128.png
     /app/usr/share/icons/hicolor/128x128/apps/com.ghostery.browser.png
   - sed -i 's|^Exec=\[TARGET\]/Ghostery|Exec=com.ghostery.browser|' com.ghostery.browser.desktop
   - sed -i 's|^Icon=.*$|Icon=com.ghostery.browser|' com.ghostery.browser.desktop
+  - sed -i 's|"app.update.channel", "release"|"app.update.channel", "flatpak"|' /app/lib/ghostery/defaults/pref/channel-prefs.js
   - install -D -m644 com.ghostery.browser.desktop -t /app/share/applications
   - install -D -m644 com.ghostery.browser.metainfo.xml -t /app/share/metainfo
   - install -D -m755 ghostery.sh /app/bin/com.ghostery.browser
@@ -63,8 +63,6 @@ modules:
   - type: file
     path: "../data/ghostery-private-browser.desktop"
     dest-filename: com.ghostery.browser.desktop
-  - type: file
-    path: "../data/policies.json"
   - type: file
     path: ghostery.sh
   - type: file
