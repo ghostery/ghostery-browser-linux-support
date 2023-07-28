@@ -36,7 +36,7 @@ finish-args:
 - "--own-name=org.mpris.MediaPlayer2.firefox.*"
 modules:
 - shared-modules/dbus-glib/dbus-glib-0.110.json
-- name: ghostery
+- name: ghostery_browser
   buildsystem: simple
   build-commands:
   - mkdir -p /app/lib

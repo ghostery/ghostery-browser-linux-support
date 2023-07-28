@@ -30,7 +30,7 @@ module GhosteryDawn
     class << self
       def ghostery_source_indexes(data)
         ghostery_index = data['modules'].index do |mod|
-          mod.is_a?(Hash) && mod['name'] == 'ghostery'
+          mod.is_a?(Hash) && mod['name'] == 'ghostery_browser'
         end
         source_index = data['modules'][ghostery_index]['sources'].index do |source|
           source.fetch('dest', nil) == 'ghostery_app'
