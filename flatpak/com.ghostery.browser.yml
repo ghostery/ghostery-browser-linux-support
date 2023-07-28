@@ -49,7 +49,7 @@ modules:
   - sed -i 's|\[TARGET\]/Ghostery|ghostery|' com.ghostery.browser.desktop
   - sed -i 's|^Icon=.*$|Icon=com.ghostery.browser|' com.ghostery.browser.desktop
   - install -D -m644 com.ghostery.browser.desktop -t /app/share/applications
-  - install -D -m644 com.ghostery.browser.appdata.xml -t /app/share/metainfo
+  - install -D -m644 com.ghostery.browser.metainfo.xml -t /app/share/metainfo
   - install -D -m755 ghostery.sh /app/bin/ghostery
   - install -d /app/lib/ffmpeg
   sources:
@@ -68,7 +68,7 @@ modules:
   - type: file
     path: ghostery.sh
   - type: file
-    path: com.ghostery.browser.appdata.xml
+    path: com.ghostery.browser.metainfo.xml
 - name: gtk-cups-backend
   buildsystem: meson
   make-args:
