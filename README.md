@@ -19,6 +19,7 @@ It will install the browser in your local user directory.
 
 # Table of contents
 1. [Introduction](#introduction)
+1. [Flatpak](#flatpak)
 1. [AUR installation for Arch-based system (e.g. Arch Linux, Manjaro): ](#aur)
     1. [(Optional) Firejail](#aur-firejail)
 1. [Install script for all distros (e.g. Debian, Ubuntu, Mint, Fedora)](#installscript)
