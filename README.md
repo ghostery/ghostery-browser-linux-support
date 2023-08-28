@@ -44,8 +44,15 @@ open a ticket here (instead of `user-agent-desktop`).
 
 ### Flatpak <a name="flatpak"></a>
 
-We are working on making the Ghostery Browser available via Flatpak.
-Until then, you can already build a [Flatpak package locally](flatpak/README.md).
+Flatpak package: https://flathub.org/apps/com.ghostery.browser
+
+```sh
+flatpak install ghostery
+flatpak run com.ghostery.browser
+```
+
+If you want to contribute, more information on the Flatpak package can be found
+in the [README](flatpak/README.md).
 
 ### AUR: Arch Based System (Arch Linux, Manjaro, ...) <a name="aur"></a>
 
