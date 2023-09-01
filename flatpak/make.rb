@@ -151,6 +151,20 @@ end
 parser.parse!(into: options)
 command = (ARGV[0] || 'bump').to_sym
 
+if File.directory?('com.ghostery.browser')
+  FileUtils.cd 'com.ghostery.browser'
+
+elsif File.exist?('com.ghostery.browser')
+  warn 'com.ghostery.browser must be a folder!'
+  exit 2
+
+else
+  GhosteryDawn::Helper.run_cmd(%w[git clone https://github.com/flathub/com.ghostery.browser])
+  FileUtils.cd 'com.ghostery.browser'
+  GhosteryDawn::Helper.run_cmd(%w[git submodule init])
+  GhosteryDawn::Helper.run_cmd(%w[git submodule update])
+end
+
 if command == :bump && options[:date] && options[:version]
   GhosteryDawn::VersionBumper.new(options).bump
 
