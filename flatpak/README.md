@@ -1,8 +1,12 @@
 # Flatpak packaging
 
-Current manifest is largely inspired by the one from [Librewolf community](https://gitlab.com/librewolf-community/browser/flatpak/)
+Ghostery Private Browser flatpak recipe is now part of the Flathub
+organization and can be found in its own repository at:
 
-To build it, you can use the provided `make.rb` ruby script:
+https://github.com/flathub/com.ghostery.browser
+
+The current folder only contains the `make.rb` ruby script to help us maintain
+the flatpak manifest when a new release of our browser happen.
 
 - `ruby make.rb -d 2022-09-06 -v 2022.8` or `ruby make.rb bump -d 2022-09-06
   -v 2022.8` to prepare the manifest file for a new release. You can also pass
@@ -20,3 +24,7 @@ To build it, you can use the provided `make.rb` ruby script:
 
 The ruby script only uses standard library and thus a very simple ruby
 installation should make it work.
+
+The script expect the flathub repository to be cloned as
+`com.ghostery.browser` just next to it. If it does not already exist, it will
+be cloned for you.
