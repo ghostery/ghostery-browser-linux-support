@@ -46,13 +46,28 @@ open a ticket here (instead of `user-agent-desktop`).
 
 Flatpak package: https://flathub.org/apps/com.ghostery.browser
 
+You can install it using the following commands (the first one has to be used
+only once if you never added the flathub repository).
+
 ```sh
-flatpak install ghostery
-flatpak run com.ghostery.browser
+flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak --user install com.ghostery.browser
+```
+
+If flatpak is correctly integrated into your desktop environment, you will
+find the Ghostery Private Browser in your applications menu. You can also
+start it from the command line by using the simple command
+`com.ghostery.browser`.
+
+In the contrary, if you did not integrate flatpak inside your desktop, you can
+still run it from the command line by using the command:
+
+```sh
+flatpak --user run com.ghostery.browser
 ```
 
 If you want to contribute, more information on the Flatpak package can be found
-in the [README](flatpak/README.md).
+in its dedicated [README](flatpak/README.md).
 
 ### AUR: Arch Based System (Arch Linux, Manjaro, ...) <a name="aur"></a>
 
