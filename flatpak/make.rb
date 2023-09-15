@@ -53,14 +53,14 @@ module GhosteryDawn
     end
 
     def upgrade_appdata
-      appdata = File.read('com.ghostery.browser.appdata.xml').split("\n")
+      appdata = File.read('com.ghostery.browser.metainfo.xml').split("\n")
       appdata.map! do |line|
         line.gsub(
           %r{<release version="[0-9.]+" date="[0-9-]+"/>},
           "<release version=\"#{@options[:version]}\" date=\"#{@options[:date]}\"/>"
         )
       end
-      File.write 'com.ghostery.browser.appdata.xml', appdata.join("\n")
+      File.write 'com.ghostery.browser.metainfo.xml', appdata.join("\n")
     end
 
     def cache_tarball(release_hash)
