@@ -9,8 +9,7 @@ The current folder only contains the `make.rb` ruby script to help us maintain
 the flatpak manifest when a new release of our browser happen.
 
 - `ruby make.rb -d 2022-09-06 -v 2022.8` or `ruby make.rb bump -d 2022-09-06
-  -v 2022.8` to prepare the manifest file for a new release. You can also pass
-  the `-b BRANCH` parameter to switch between stable and beta release.
+  -v 2022.8` to prepare the manifest file for a new release.
 - `ruby make.rb build` to create a local flatpak package
 - `ruby make.rb install` to install a previously created local flatpak package
 - `ruby make.rb uninstall` to uninstall the flatpak previously installed

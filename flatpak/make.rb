@@ -47,7 +47,6 @@ module GhosteryDawn
       data['modules'][ghost_index]['sources'][src_index]['url'] = @options[:url]
       release_hash = Digest::SHA256.file(@options[:tarball]).hexdigest
       data['modules'][ghost_index]['sources'][src_index]['sha256'] = release_hash
-      data['default-branch'] = @options[:branch]
       File.write('com.ghostery.browser.yml', data.to_yaml)
       release_hash
     end
@@ -112,7 +111,6 @@ possible_commands = GhosteryDawn::Builder.methods(false).sort.freeze
 options = {
   date: nil,
   version: nil,
-  branch: 'stable',
   lang: 'en-US'
 }
 parser = OptionParser.new do |parser| # rubocop:disable Metrics/BlockLength
@@ -121,7 +119,7 @@ parser = OptionParser.new do |parser| # rubocop:disable Metrics/BlockLength
 
     Example:
         ruby make.rb -d 2022-09-06 -v 2022.8
-        ruby make.rb bump -d 2022-12-06 -v 2022.8.2 -l de -b beta
+        ruby make.rb bump -d 2022-12-06 -v 2022.8.2 -l de
         ruby make.rb build
 
     Commands:
@@ -140,9 +138,9 @@ parser = OptionParser.new do |parser| # rubocop:disable Metrics/BlockLength
 
   parser.on('-v', '--version VERSION', '"Commercial" name of the new release')
 
-  parser.on('-b', '--branch [BRANCH]',
-            'Branch of this new release, i.e. stable or beta.',
-            '(default: stable)')
+  parser.on('-b', '--branch [BRANCH]', 'Deprecated. Don’t use it anymore') do
+    warn 'The branch option is not required anymore and will be removed some day.'
+  end
 
   parser.on('-l', '--lang [LANG]',
             'Lang of the upstream package to use',
