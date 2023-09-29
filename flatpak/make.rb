@@ -59,6 +59,7 @@ module GhosteryDawn
           "<release version=\"#{@options[:version]}\" date=\"#{@options[:date]}\"/>"
         )
       end
+      appdata << '' # Force final empty new line
       File.write 'com.ghostery.browser.metainfo.xml', appdata.join("\n")
     end
 
