@@ -82,8 +82,8 @@ module GhosteryDawn
 
     def self.build
       Helper.run_cmd(%w[flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo])
-      Helper.run_cmd(FLATPAK_USER + %w[install org.freedesktop.Platform//22.08])
-      Helper.run_cmd(FLATPAK_USER + %w[install org.freedesktop.Sdk//22.08])
+      Helper.run_cmd(FLATPAK_USER + %w[install org.freedesktop.Platform//23.08])
+      Helper.run_cmd(FLATPAK_USER + %w[install org.freedesktop.Sdk//23.08])
       Helper.run_cmd %w[flatpak-builder --force-clean build-dir com.ghostery.browser.yml]
     end
 
