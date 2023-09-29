@@ -9,7 +9,16 @@ yay -S ghostery-browser-bin
 ghostery &
 ```
 
-Otherwise, use the [install script](#installscript):
+Alternatively, use the [Flatpak image](#flatpak). It is supported on all Linux distributions (assuming that `flatpak` is installed):
+
+```sh
+flatpak --user remote-add --if-not-exists flathub https://flathub.org/repo/flathub.flatpakrepo
+flatpak --user install com.ghostery.browser
+
+flatpak --user run com.ghostery.browser  # to run it
+```
+
+AUR or Flatpak is recommended now, but you can also use the [install script](#installscript):
 
 ```sh
 curl https://raw.githubusercontent.com/ghostery/ghostery-browser-linux-support/main/install-ghostery.sh | bash
