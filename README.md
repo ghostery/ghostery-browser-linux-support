@@ -1,5 +1,13 @@
 ## Ghostery Browser Linux Support
 
+:warning: **Important Notice: The project is no longer maintained**
+
+We regret to inform you that the Ghostery Private Browser has reached its end of life and will no longer receive security updates. For your safety, we strongly recommend switching to a secure alternative like Firefox.
+
+For more information, please refer to our blog post: [Sunsetting the Ghostery Private Browser](https://www.ghostery.com/blog/ghostery-private-browser-discontinued).
+
+---
+
 tl;dr: If you want to install [Ghostery Private Browser](https://www.ghostery.com/ghostery-private-browser) on Linux, here are your options:
 
 On Arch-based distros such as Arch Linux, Manjaro, and EndeavourOS, [use the AUR package](#aur):
